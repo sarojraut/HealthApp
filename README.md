@@ -31,9 +31,6 @@ In addition incorporates an image analyzer, working in conjunction with automate
 3. Install packages listed before
 4. Drag and drop [Machine Learning Model](google.com) in HealthApp/Visual Recognizer (Check the Target Membership)
 5. Drag and drop your own GoogleService-Info.plist into HealthApp/
-7. Activate MapKit to your Apple ID (Targets -> Capabilities)
-
-![alt text](https://user-images.githubusercontent.com/42153044/52024340-2f778f80-24c6-11e9-8652-c28989d6b9dc.png)
 
 ## About Trained Model
 
