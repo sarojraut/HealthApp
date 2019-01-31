@@ -29,16 +29,18 @@ class AuthService {
         }
     }
     
-    func register(email: String, password: String, firstName: String, lastName: String, onComplete: Completion?) {
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+    func register(doctor: Doctor, password: String, onComplete: Completion?) {
+        let paramDoctor = doctor
+        Auth.auth().createUser(withEmail: paramDoctor.email, password: password) { (doctor, error) in
             if let error = (error as NSError?) {
                 // Show the error
                 self.handleFireBaseError(error: error, onComplete: onComplete)
             } else {
-                if user?.user.uid != nil {
-                    DatabaseService.shared.saveUser(uid: (user?.user.uid)!)
+                if doctor?.user.uid != nil {
+                    paramDoctor.uid = (doctor?.user.uid)!
+                    DatabaseService.shared.saveDoctor(doctor: paramDoctor)
                     // User loggin in
-                    Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+                    Auth.auth().signIn(withEmail: paramDoctor.email, password: password, completion: { (user, error) in
                         if let error = (error as NSError?) {
                             // Show the error
                             self.handleFireBaseError(error: error, onComplete: onComplete)

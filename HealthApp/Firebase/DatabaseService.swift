@@ -58,6 +58,11 @@ class DatabaseService {
         self.mainRef.child(FIR_CHILD_USERS).child(uid).child("profile").setValue(profile)
     }
     
+    func saveDoctor(doctor: Doctor) {
+        let profile: Dictionary<String, AnyObject> = ["firstName": doctor.firstName as AnyObject, "secondName": doctor.lastName as AnyObject, "speciality": doctor.specialty as AnyObject, "phone": doctor.phone as AnyObject, "direction": doctor.direction as AnyObject, "email": doctor.email as AnyObject]
+        self.mainRef.child(FIR_CHILD_DOCTORS).child(doctor.uid).child("profile").setValue(profile)
+    }
+    
     func create(appointment: Appointment) {
         let firebaseAppointment: Dictionary<String, AnyObject> = ["doctorId": appointment.doctorUid as AnyObject, "patientId": appointment.patientUid as AnyObject, "startDate": "\(appointment.startDate)" as AnyObject, "endDate": "\(appointment.endDate)" as AnyObject, "notes": appointment.notes as AnyObject, "doctorLocalIdentifier": appointment.localIdentifier as AnyObject, "patientLocalIdentifier": appointment.patientLocalIdentifier as AnyObject]
         self.mainRef.child("\(FIR_CHILD_APPOINTMENT)").child(appointment.id).setValue(firebaseAppointment)

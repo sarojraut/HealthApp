@@ -21,6 +21,7 @@ class CreateAppointmentViewController: UIViewController, UITableViewDelegate, UI
         tableView.dataSource = self
         tableView.delegate = self
         doctor = Doctor(uid: doctorUid)
+        doctorUid = doctor.uid
         doctor.appointments = self.doctorAppointments
     }
     

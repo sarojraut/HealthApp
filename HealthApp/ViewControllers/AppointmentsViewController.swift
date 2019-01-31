@@ -1,12 +1,13 @@
 import UIKit
 import EventKit
+import FirebaseAuth
 
 class AppointmentsViewController: UITableViewController {
     
     var appointments: [Appointment] = []
     var patientAppointments: [Appointment] = []
     var patient: Patient!
-    let doctorUid = "doctorUID"
+    let doctorUid = Auth.auth().currentUser?.uid
     @IBOutlet var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -67,7 +68,7 @@ class AppointmentsViewController: UITableViewController {
     @objc func getAppointments() {
         appointments = []
         // MARK: - TODO EL ID DEL DOCTOR DEBE DE CAMBIAR
-        DatabaseService.shared.doctorsRef.child(doctorUid).observeSingleEvent(of: .value, with: { (snapshot) in
+        DatabaseService.shared.doctorsRef.child(doctorUid!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             let appointmentsId = value?["appointments"] as? NSDictionary ?? [:]
             for appointment in appointmentsId {
@@ -83,7 +84,7 @@ class AppointmentsViewController: UITableViewController {
                         let localIdentifier = value?["patientLocalIdentifier"] as? String ?? ""
                         let doctorLocalIdentifier = value?["doctorLocalIdentifier"] as? String ?? ""
                         if let formatedStartDate = self.getDateFrom(dateInString: startDate), let formatedEndDate = self.getDateFrom(dateInString: endDate) {
-                            let newAppointment = Appointment(startDate: formatedStartDate, endDate: formatedEndDate, doctorUid: self.doctorUid, patientUid: patientUid)
+                            let newAppointment = Appointment(startDate: formatedStartDate, endDate: formatedEndDate, doctorUid: self.doctorUid!, patientUid: patientUid)
                             newAppointment.notes = notes
                             newAppointment.localIdentifier = doctorLocalIdentifier
                             newAppointment.patientLocalIdentifier = localIdentifier
@@ -111,14 +112,14 @@ class AppointmentsViewController: UITableViewController {
     
     @objc func appointmentsToRemove() {
         //EL ID DEL MEDICO DEBE DE CAMBIAR
-        DatabaseService.shared.doctorsRef.child(doctorUid).observeSingleEvent(of: .value, with: { (snapshot) in
+        DatabaseService.shared.doctorsRef.child(doctorUid!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             let appointmentsId = value?["appointmentsToRemove"] as? NSDictionary ?? [:]
             for appointment in appointmentsId {
                 DatabaseService.shared.appointmentsRef.child("\(appointment.key)").observeSingleEvent(of: .value, with: { (snapshot) in
                     let value = snapshot.value as? NSDictionary
                         let localIdentifier = value?["doctorLocalIdentifier"] as? String ?? ""
-                    let newAppointment = Appointment(startDate: Date(), endDate: Date(), doctorUid: self.doctorUid, patientUid: self.patient.uid)
+                    let newAppointment = Appointment(startDate: Date(), endDate: Date(), doctorUid: self.doctorUid!, patientUid: self.patient.uid)
                     newAppointment.localIdentifier = localIdentifier
                     
                     newAppointment.totalRemoveFromServer()

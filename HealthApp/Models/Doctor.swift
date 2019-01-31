@@ -13,11 +13,20 @@ class Doctor {
     private var _appointments: [Appointment]
     private var _specialty: String
     
-    var uid:        String { return _uid }
     var username:   String { return _username }
     var direction:  String { return _direction }
     var email:      String { return _email }
     var phone:      String { return _phone }
+    
+    
+    var uid: String {
+        set {
+            _uid = newValue
+        }
+        get {
+            return _uid
+        }
+    }
     
     var firstName: String {
         set {

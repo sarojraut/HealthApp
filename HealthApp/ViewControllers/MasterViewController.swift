@@ -6,7 +6,7 @@ class MasterViewController: UITableViewController {
     @IBOutlet var spinner: UIActivityIndicatorView!
     var detailViewController: DetailViewController? = nil
     var patients: [Patient] = []
-    let doctorUid = "doctorUID"
+    let doctorUid = Auth.auth().currentUser?.uid
     var addButton: UIBarButtonItem!
 
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class MasterViewController: UITableViewController {
     
     @objc func setPatients() {
         patients = []
-        DatabaseService.shared.doctorsRef.child(doctorUid).observeSingleEvent(of: .value, with: { (snapshot) in
+        DatabaseService.shared.doctorsRef.child(doctorUid!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             let patientsUid = value?["patients"] as? NSDictionary ?? [:]
             for patient in patientsUid {

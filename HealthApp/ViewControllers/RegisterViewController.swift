@@ -5,9 +5,12 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        specialityPickerView.selectRow(0, inComponent: 0, animated: true)
         setSpecialities()
     }
     
+    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
@@ -15,6 +18,8 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var specialityPickerView: UIPickerView!
     var specialities = [String]()
+    var selectedSpeciality = 0
+    
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
@@ -24,18 +29,21 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let password = passwordTextField.text
         let firstName = firstNameTextField.text
         let lastName = lastNameTextField.text
-        
+        let address = addressTextField.text
+        let phone = phoneTextField.text
+        let specialtiy = specialities[selectedSpeciality]
         if mail?.isEmail != nil {
             if password == repeatPasswordTextField.text {
                 if password?.isPassword != nil {
                     if firstName?.isName != nil, lastName?.isName != nil {
-                        AuthService.shared.register(email: mail!, password: password!, firstName: firstName!, lastName: lastName!, onComplete: { (message, data) in
+                        let newDoctor = Doctor(uid: "", firstName: firstName!, lastName: lastName!, direction: address!, email: mail!, phone: phone!, specialty: specialtiy)
+                        AuthService.shared.register(doctor: newDoctor, password: password!) { (message, data) in
                             guard message == nil else {
                                 SCLAlertView().showError("Error", subTitle: message!)
                                 return
                             }
                             self.performSegue(withIdentifier: "showMainPageVC", sender: nil)
-                        })
+                        }
                     } else {
                         SCLAlertView().showError("Error", subTitle: NSLocalizedString("register.alert.nameError", comment: ""))
                     }
@@ -51,7 +59,8 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func setSpecialities() {
-        specialities = ["General Surgery",
+        specialities = ["General Doctor / Other",
+                        "General Surgery",
                         "Cardiothoracic Surgery",
                         "Vascular Surgery",
                         "Cosmetic and Reconstructive Surgery",
@@ -99,6 +108,10 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return specialities[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedSpeciality = row
     }
     
     

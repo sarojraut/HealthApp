@@ -13,8 +13,8 @@ enum HealthRecord: Int {
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var doctor: Doctor?
-    //let doctorUid: String? = Auth.auth().currentUser?.uid
-    let doctorUid: String? = "doctorUID"
+    let doctorUid: String? = Auth.auth().currentUser?.uid
+    //let doctorUid: String? = "doctorUID"
     var patients = [Patient]()
     @IBOutlet weak var currentPatientsLabel: UILabel!
     @IBOutlet weak var currentAppointmentsLabel: UILabel!
