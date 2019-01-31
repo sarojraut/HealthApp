@@ -5,8 +5,12 @@ class QRGeneratorViewController: UIViewController {
 
     @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet weak var qrImageView: UIImageView!
+    var doctor: Doctor?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        profilePictureImageView.setRounded()
+        profilePictureImageView.image = doctor?.profilePicture ?? UIImage(named: "profile-placeholder")
         generateQR()
     }
     

@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var bloodTypeLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var profilePictureImageView: UIImageView!
     
     func configureView() {
         if let detail = detailItem {
@@ -39,6 +40,11 @@ class DetailViewController: UIViewController {
             
             if let label = weightLabel {
                 label.text = "\(detail.weightRecords.last?.weight ?? 0.0) Kg"
+            }
+            
+            if let profileImage = profilePictureImageView {
+                profileImage.setRounded()
+                profileImage.image = patient.profilePicture
             }
         }
     }

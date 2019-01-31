@@ -12,11 +12,12 @@ enum HealthRecord: Int {
 }
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     var doctor: Doctor?
     //let doctorUid: String? = Auth.auth().currentUser?.uid
     let doctorUid: String? = "doctorUID"
     var patients = [Patient]()
+    @IBOutlet weak var currentPatientsLabel: UILabel!
+    @IBOutlet weak var currentAppointmentsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +99,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         present(actionSheet, animated: true)
     }
     
+    
+    @IBAction func logoutButtonPressed(_ sender: UIButton) {
+        try! Auth.auth().signOut()
+        
+        if let storyboard = self.storyboard {
+            let viewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            self.present(viewController, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func patientsButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "showPatientsVC", sender: nil)
     }
@@ -111,6 +122,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     //MARK: - Functions
+    
+    func setNumberOfPatients() {
+        DatabaseService.shared.doctorsRef.child(doctorUid!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let patientsUid = value?["patients"] as? NSDictionary ?? [:]
+            DispatchQueue.main.async {
+                self.currentPatientsLabel.text = "\(patientsUid.count) current patients"
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         nameLabel.isHidden = true
@@ -169,6 +192,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         doctor = Doctor(uid: doctorUid!)
         getName()
         doctor?.profilePicture = UIImage(named: "Doctor-Profile2")
+        setNumberOfPatients()
     }
     
     //MARK: - Sending to Firebase methods and Siri
