@@ -11,10 +11,14 @@ enum HealthRecord: Int {
     case workout = 4
 }
 
+enum BusyStatus: Int {
+    case busy = 0
+    case available = 1
+}
+
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var doctor: Doctor?
     let doctorUid: String? = Auth.auth().currentUser?.uid
-    //let doctorUid: String? = "doctorUID"
     var patients = [Patient]()
     @IBOutlet weak var currentPatientsLabel: UILabel!
     @IBOutlet weak var currentAppointmentsLabel: UILabel!
@@ -41,6 +45,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var updatePictureButton: UIButton!
     @IBOutlet weak var savePictureButton: UIButton!
     @IBOutlet weak var myPatientsButton: UIButton!
+    @IBOutlet weak var busyTimeButton: UIButton!
     
     //MARK: - IBActions
 
@@ -117,11 +122,44 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func busyTimeButtonPressed(_ sender: UIButton) {
-        print("Busy Mode")
+        var message = ""
+        let status = getBusyStatus()
+        if status == .available {
+            message = "Now you're in busy mode"
+        } else {
+            message = "Now you're available"
+        }
+        
+        SCLAlertView().showNotice(message, subTitle: "Press again to change it")
+        setBusy(button: sender, status: status)
     }
     
     
     //MARK: - Functions
+    
+    func getBusyStatus() -> BusyStatus {
+        var finalStatus = BusyStatus.available
+        DatabaseService.shared.doctorsRef.child("\(doctorUid!)").child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let busy = value?["busy"] as? Bool ?? false
+            let status = busy ? BusyStatus.available : BusyStatus.busy
+            let result = DatabaseService.shared.changeBusyStatusOf(doctor: self.doctor!, status: status)
+            if !result {
+                finalStatus = BusyStatus.busy
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        return finalStatus
+    }
+    
+    func setBusy(button: UIButton, status: BusyStatus) {
+        if status == .available {
+            button.imageView?.image = UIImage(named: "available-icon")
+        } else {
+            button.imageView?.image = UIImage(named: "busy-icon")
+        }
+    }
     
     func setNumberOfPatients() {
         DatabaseService.shared.doctorsRef.child(doctorUid!).observeSingleEvent(of: .value, with: { (snapshot) in

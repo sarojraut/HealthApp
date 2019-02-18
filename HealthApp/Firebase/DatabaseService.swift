@@ -95,5 +95,18 @@ class DatabaseService {
         }
     }
     
+    func changeBusyStatusOf(doctor: Doctor, status: BusyStatus) -> Bool {
+        var newStatus: Bool
+        var result = false
+        if status != .available {
+            result = true
+            newStatus = true
+        } else {
+            newStatus = false
+        }
+        self.mainRef.child("\(FIR_CHILD_DOCTORS)/\(doctor.uid)/profile").child("busy").setValue(newStatus)
+        return result
+    }
+    
 }
     

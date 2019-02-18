@@ -182,15 +182,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Exx-XM-L7d">
                                 <rect key="frame" x="209" y="60" width="350" height="250"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Doctor-Profile2" translatesAutoresizingMaskIntoConstraints="NO" id="V3A-vG-uVL">
-                                        <rect key="frame" x="100" y="0.0" width="150" height="150"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V3A-vG-uVL">
+                                        <rect key="frame" x="100" y="0.0" width="150" height="162"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="FwW-sa-wkG"/>
                                             <constraint firstAttribute="width" constant="150" id="MyK-6a-X09"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GwV-14-Mun">
-                                        <rect key="frame" x="0.0" y="160" width="350" height="40"/>
+                                        <rect key="frame" x="0.0" y="172" width="350" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="AfA-rL-JbQ"/>
                                         </constraints>
@@ -199,7 +199,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYJ-vf-Rcg">
-                                        <rect key="frame" x="138.5" y="210" width="73.5" height="40"/>
+                                        <rect key="frame" x="138.5" y="222" width="73.5" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -225,7 +225,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yld-Eb-9qK">
-                                <rect key="frame" x="40" y="836" width="688" height="70"/>
+                                <rect key="frame" x="40" y="924" width="688" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Txh-EY-g15"/>
                                 </constraints>
@@ -321,10 +321,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="62" translatesAutoresizingMaskIntoConstraints="NO" id="R03-QW-mmy">
-                                <rect key="frame" x="53" y="660" width="662" height="126"/>
+                                <rect key="frame" x="53" y="660" width="662" height="214"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wn2-MR-6gz">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="126"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="214"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5c-Tp-eok">
                                                 <rect key="frame" x="100" y="0.0" width="100" height="120"/>
@@ -339,7 +339,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Past Appointments" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBb-kW-wEd">
-                                                <rect key="frame" x="9.5" y="120" width="281.5" height="6"/>
+                                                <rect key="frame" x="9.5" y="120" width="281.5" height="94"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -351,7 +351,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jxu-on-AZh">
-                                        <rect key="frame" x="362" y="0.0" width="300" height="126"/>
+                                        <rect key="frame" x="362" y="0.0" width="300" height="214"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwp-eE-nk6">
                                                 <rect key="frame" x="90" y="0.0" width="120" height="120"/>
@@ -365,7 +365,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Busy Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ho-kx-wPb">
-                                                <rect key="frame" x="79.5" y="120" width="141.5" height="6"/>
+                                                <rect key="frame" x="79.5" y="120" width="141.5" height="94"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -435,6 +435,7 @@
                         <viewLayoutGuide key="safeArea" id="qZj-WO-RiA"/>
                     </view>
                     <connections>
+                        <outlet property="busyTimeButton" destination="Iwp-eE-nk6" id="e8O-rF-cxE"/>
                         <outlet property="currentAppointmentsLabel" destination="Kjv-31-jTc" id="76W-wM-tNb"/>
                         <outlet property="currentPatientsLabel" destination="M5K-Yn-MYz" id="twd-gk-Lfk"/>
                         <outlet property="firstNameTextField" destination="XjV-XX-uno" id="ies-vS-c0A"/>
@@ -918,7 +919,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="6Gi-PM-wVJ">
                                                     <rect key="frame" x="20" y="10" width="728" height="148"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture" translatesAutoresizingMaskIntoConstraints="NO" id="glt-kC-YhW">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="glt-kC-YhW">
                                                             <rect key="frame" x="0.0" y="0.0" width="148" height="148"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="148" id="Ql4-fG-kFW"/>
@@ -1899,7 +1900,6 @@
     </scenes>
     <resources>
         <image name="Blue" width="807" height="181"/>
-        <image name="Doctor-Profile2" width="750" height="750"/>
         <image name="busy-icon" width="384" height="384"/>
         <image name="button" width="152.5" height="25.5"/>
         <image name="button-light" width="153" height="26"/>
@@ -1913,7 +1913,6 @@
         <image name="line" width="120" height="1"/>
         <image name="logout-icon" width="384" height="384"/>
         <image name="patient-icon" width="574" height="602"/>
-        <image name="picture" width="167.5" height="167.5"/>
         <image name="profile-placeholder" width="697.5" height="697.5"/>
         <image name="scrim" width="13.5" height="44.5"/>
         <image name="sleep-icon" width="578" height="614"/>
