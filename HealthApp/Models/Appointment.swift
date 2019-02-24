@@ -19,11 +19,11 @@ class Appointment {
         _id = "\(startDate)-\(doctorUid)-\(patientUid)"
     }
     
-    var doctorUid:  String { return _doctorUid }
-    var id:         String { return _id }
-    var patientUid: String { return _patientUid }
-    var startDate:  Date { return _startDate }
-    var endDate:    Date { return _endDate }
+    var doctorUid:  String  { return _doctorUid }
+    var id:         String  { return _id }
+    var patientUid: String  { return _patientUid }
+    var startDate:  Date    { return _startDate }
+    var endDate:    Date    { return _endDate }
     
     var patientLocalIdentifier: String? {
         set {

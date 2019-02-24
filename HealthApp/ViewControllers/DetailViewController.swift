@@ -1,4 +1,5 @@
 import UIKit
+import SCLAlertView
 
 class DetailViewController: UIViewController {
     
@@ -50,26 +51,35 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func appointmentsButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "showAppointmentsVC", sender: nil)
+        if patient != nil {
+            performSegue(withIdentifier: "showAppointmentsVC", sender: nil)
+        } else {
+             SCLAlertView().showInfo("Select a patient", subTitle: "You must to selected a patient first")
+        }
+        
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        switch sender.tag {
-        case 0:
-            arrayToShow = patient.hearthRecords
-        case 1:
-            arrayToShow = patient.sleepRecords
-        case 2:
-            arrayToShow = patient.heightRecords
-        case 3:
-            arrayToShow = patient.weightRecords
-        case 5:
-            //workouts
-            break
-        default:
-            break
+        if patient != nil {
+            switch sender.tag {
+            case 0:
+                arrayToShow = patient.hearthRecords
+            case 1:
+                arrayToShow = patient.sleepRecords
+            case 2:
+                arrayToShow = patient.heightRecords
+            case 3:
+                arrayToShow = patient.weightRecords
+            case 5:
+                //workouts
+                break
+            default:
+                break
+            }
+            performSegue(withIdentifier: "showDetailedPatientVC", sender: nil)
+        } else {
+            SCLAlertView().showInfo("Select a patient", subTitle: "You must to selected a patient first")
         }
-        performSegue(withIdentifier: "showDetailedPatientVC", sender: nil)
     }
     
     override func viewDidLoad() {
