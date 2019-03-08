@@ -182,7 +182,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Exx-XM-L7d">
                                 <rect key="frame" x="209" y="60" width="350" height="250"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="V3A-vG-uVL">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Doctor-Profile1" translatesAutoresizingMaskIntoConstraints="NO" id="V3A-vG-uVL">
                                         <rect key="frame" x="100" y="0.0" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="FwW-sa-wkG"/>
@@ -225,7 +225,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yld-Eb-9qK">
-                                <rect key="frame" x="40" y="924" width="688" height="70"/>
+                                <rect key="frame" x="40" y="908" width="688" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Txh-EY-g15"/>
                                 </constraints>
@@ -262,10 +262,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="BB9-QO-BCG">
-                                <rect key="frame" x="57.5" y="410" width="653" height="200"/>
+                                <rect key="frame" x="57.5" y="410" width="653" height="198"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ITJ-TK-Fe5">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="198"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXR-BR-9Tc">
                                                 <rect key="frame" x="90" y="0.0" width="120" height="120"/>
@@ -280,7 +280,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 Current Patients" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5K-Yn-MYz">
-                                                <rect key="frame" x="20.5" y="135" width="259" height="65"/>
+                                                <rect key="frame" x="20.5" y="135" width="259" height="63"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -292,7 +292,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BZ0-At-7bz">
-                                        <rect key="frame" x="353" y="0.0" width="300" height="200"/>
+                                        <rect key="frame" x="353" y="0.0" width="300" height="198"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dL4-3M-uMA">
                                                 <rect key="frame" x="90" y="0.0" width="120" height="120"/>
@@ -307,7 +307,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Current Appointments" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjv-31-jTc">
-                                                <rect key="frame" x="56" y="128" width="188" height="72"/>
+                                                <rect key="frame" x="56" y="128" width="188" height="70"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -321,10 +321,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="62" translatesAutoresizingMaskIntoConstraints="NO" id="R03-QW-mmy">
-                                <rect key="frame" x="53" y="660" width="662" height="214"/>
+                                <rect key="frame" x="53" y="658" width="662" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wn2-MR-6gz">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="214"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5c-Tp-eok">
                                                 <rect key="frame" x="100" y="0.0" width="100" height="120"/>
@@ -339,7 +339,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Past Appointments" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBb-kW-wEd">
-                                                <rect key="frame" x="9.5" y="120" width="281.5" height="94"/>
+                                                <rect key="frame" x="9.5" y="120" width="281.5" height="80"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -351,7 +351,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jxu-on-AZh">
-                                        <rect key="frame" x="362" y="0.0" width="300" height="214"/>
+                                        <rect key="frame" x="362" y="0.0" width="300" height="200"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwp-eE-nk6">
                                                 <rect key="frame" x="90" y="0.0" width="120" height="120"/>
@@ -365,7 +365,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Busy Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ho-kx-wPb">
-                                                <rect key="frame" x="79.5" y="120" width="141.5" height="94"/>
+                                                <rect key="frame" x="79.5" y="120" width="141.5" height="80"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -435,6 +435,7 @@
                         <viewLayoutGuide key="safeArea" id="qZj-WO-RiA"/>
                     </view>
                     <connections>
+                        <outlet property="busyLabel" destination="7Ho-kx-wPb" id="iss-7N-tci"/>
                         <outlet property="busyTimeButton" destination="Iwp-eE-nk6" id="e8O-rF-cxE"/>
                         <outlet property="currentAppointmentsLabel" destination="Kjv-31-jTc" id="76W-wM-tNb"/>
                         <outlet property="currentPatientsLabel" destination="M5K-Yn-MYz" id="twd-gk-Lfk"/>
@@ -1900,6 +1901,7 @@
     </scenes>
     <resources>
         <image name="Blue" width="807" height="181"/>
+        <image name="Doctor-Profile1" width="1000" height="1000"/>
         <image name="busy-icon" width="384" height="384"/>
         <image name="button" width="152.5" height="25.5"/>
         <image name="button-light" width="153" height="26"/>

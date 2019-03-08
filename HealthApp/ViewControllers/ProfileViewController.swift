@@ -46,6 +46,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var savePictureButton: UIButton!
     @IBOutlet weak var myPatientsButton: UIButton!
     @IBOutlet weak var busyTimeButton: UIButton!
+    @IBOutlet weak var busyLabel: UILabel!
     
     //MARK: - IBActions
 
@@ -122,22 +123,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func busyTimeButtonPressed(_ sender: UIButton) {
-        var message = ""
-        let status = getBusyStatus()
-        if status == .available {
-            message = "Now you're in busy mode"
-        } else {
-            message = "Now you're available"
-        }
-        
-        SCLAlertView().showNotice(message, subTitle: "Press again to change it")
-        setBusy(button: sender, status: status)
-    }
-    
-    
-    //MARK: - Functions
-    
-    func getBusyStatus() -> BusyStatus {
         var finalStatus = BusyStatus.available
         DatabaseService.shared.doctorsRef.child("\(doctorUid!)").child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
@@ -145,12 +130,30 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let status = busy ? BusyStatus.available : BusyStatus.busy
             let result = DatabaseService.shared.changeBusyStatusOf(doctor: self.doctor!, status: status)
             if !result {
-                finalStatus = BusyStatus.busy
+                finalStatus = .busy
+                self.setBusyVisuals(status: finalStatus, message: "Now you're in busy mode", button: sender)
+            } else {
+                self.setBusyVisuals(status: finalStatus, message: "Now you're available", button: sender)
             }
+            self.setBusy(button: sender, status: finalStatus)
         }) { (error) in
             print(error.localizedDescription)
         }
-        return finalStatus
+    }
+    
+    //MARK: - Functions
+    
+    func setBusyVisuals(status: BusyStatus, message: String?, button: UIButton) {
+        if status == .available {
+                self.busyLabel.text = "Busy Mode: OFF"
+                button.imageView?.image = UIImage(named: "available-icon")
+            } else {
+                self.busyLabel.text = "Busy Mode: ON"
+                button.imageView?.image = UIImage(named: "busy-icon")
+            }
+            if let message = message {
+                SCLAlertView().showNotice(message, subTitle: "Press again to change it")
+            }
     }
     
     func setBusy(button: UIButton, status: BusyStatus) {
@@ -229,7 +232,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func setInformation() {
         doctor = Doctor(uid: doctorUid!)
         getName()
-        doctor?.profilePicture = UIImage(named: "Doctor-Profile2")
+        doctor?.profilePicture = UIImage(named: "Doctor-Profile1")
         setNumberOfPatients()
     }
     
